@@ -1,13 +1,20 @@
 # include <stdio.h>
 
+
+// enum for piece type
 typedef enum {
 	NONE, ROOK, BISHOP, PAWN, KNIGHT, QUEEN, KING
 } PieceType;
 
+// enum for piece color
 typedef enum {
-	EMPTY, WHITE, BLACK
+	EMPTY, // For no piece on the square
+	WHITE, // For white piece
+	BLACK, // For black piece
 } PieceColor;
 
+
+// piece struct which represents a piece with piece type, piece color and piece identifier.
 typedef struct {
 	PieceType type;
 	PieceColor color;
