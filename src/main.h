@@ -1,7 +1,7 @@
 // main.h file for function and types declarations which can be used in both source files and tests files.
 
 #ifndef MAIN_H // checks if main.h is not defined
-#define MAIN.H // defines main.h if it is not defined
+#define MAIN_H // defines main.h if it is not defined
 
 #include <stdio.h>
 
