@@ -31,9 +31,13 @@ typedef struct {
 } Piece;
 
 // Declaring swap function
-int swap(int *a,int *b);
+Piece swap(Piece *a,Piece *b);
 
 // Declaring the printBoard function
-void printBoard(int board[8][8]);
+void printBoard(Piece board[8][8]);
+
+// initialize board function
+// This function is explained in main.c file
+void initializeBoard(Piece board[8][8]);
 
 #endif
