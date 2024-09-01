@@ -1,65 +1,65 @@
-#include<stdio.h>
+#include <stdio.h>
 
 // making fuctions which are going to be used in this code
 
-    void swap(int *a, int *b) {
+void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
 }
 
-int main(){
+// function for printing the board
 
+void printBoard(int board[8][8]) {
+    printf("Board\n");
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            printf("  %d  ", board[i][j]);
+        };
+        printf("\n");
+    };
+};
 
+int main() {
 
 // Initialization of the chess board
 
-        int board [8][8] = {
-            {2, 2, 2, 2, 2, 2, 2, 2},
-            {2, 2, 2, 2, 2, 2, 2, 2},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {1, 1, 1, 1, 1, 1, 1, 1},
-            {1, 1, 1, 1, 1, 1, 1, 1}
-        };
+    int board [8][8] = {
+        {2, 2, 2, 2, 2, 2, 2, 2},
+        {2, 2, 2, 2, 2, 2, 2, 2},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {1, 1, 1, 1, 1, 1, 1, 1},
+        {1, 1, 1, 1, 1, 1, 1, 1}
+    };
+
+    // declare move and position variables
+    int move1, move2, pos1, pos2;
+
+    // print the initial unchanged state of the board
+    printBoard(board);
 
 
-// Taking moves from the user
+    printf("Which piece you want to move: ");
+    scanf("%d %d", &move1, &move2);
 
-        int move1, move2, pos1, pos2;
+    printf("Where to move: ");
+    scanf("%d %d", &pos1, &pos2);
+
+    // moving the chess piece at the desired position
 
 
-        printf("Which piece you want to move: ");
-        scanf("%d %d", &move1, &move2);
+    swap(&board[move1][move2], &board[pos1][pos2]);
 
-        printf("Where to move: ");
-        scanf("%d %d", &pos1, &pos2);
+    /*
+    Swtich statement not requried now
+    */  
 
-// moving the chess piece at the desired position        
+    // printing the boards again with updated chess positions
 
-        switch (board[pos1][pos2])
-        {
-        case 1:
-            swap(&board[move1][move2], &board[pos1][pos2]);
-            board[move1][move2] = 0;
-            break;
-        
-        default:
-            swap(&board[move1][move2], &board[pos1][pos2]);
-            break;
-        }
-        
-
-// printing the boards again with updated chess positions
-
-        for(int i = 0; i < 8; i++){
-            for(int j = 0; j < 8; j++){
-                printf("    %d    ", board[i][j]);
-            }
-            printf("\n");
-        }
-        
+    printBoard(board);
+    
     return 0;
 }
