@@ -1,5 +1,9 @@
-# include <stdio.h>
+// main.h file for function and types declarations which can be used in both source files and tests files.
 
+#ifndef MAIN_H // checks if main.h is not defined
+#define MAIN.H // defines main.h if it is not defined
+
+#include <stdio.h>
 
 // enum for piece type
 typedef enum {
@@ -26,21 +30,10 @@ typedef struct {
 	char identification[20];
 } Piece;
 
-int main() {
-	char board[8][8] = {
-		{2,2,2,2,2,2,2,2},
-		{2,2,2,2,2,2,2,2},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0},
-		{1,1,1,1,1,1,1,1},
-		{1,1,1,1,1,1,1,1},
-	};
-	for (int i=0; i<8;i++){
-		for (int j=0; j<8; j++) {
-			printf("  %d  ", board[i][j]);
-		}
-		printf("\n");
-	};
-};
+// Declaring swap function
+int swap(int *a,int *b);
+
+// Declaring the printBoard function
+void printBoard(int board[8][8]);
+
+#endif
