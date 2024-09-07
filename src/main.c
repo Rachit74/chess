@@ -42,7 +42,7 @@ void printBoard(Piece board[8][8]) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             // print piece type and color
-            printf("  %4d[%d]  ", board[i][j].type, board[i][j].color);
+            printf("  %4d[%d](%d,%d)  ", board[i][j].type, board[i][j].color, i,j);
         }
         printf("\n");
     }

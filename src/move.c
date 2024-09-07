@@ -18,7 +18,7 @@ void movePiece(Piece board[8][8]) {
     // Piece that will be attacked
     Piece replacing_piece = board[final_pos_x][final_pos_y];
 
-    if (!replacing_piece.type == 0) {
+    if (replacing_piece.type != 0) {
         // manage the logic if a piece if being attacked
         // BHAI LANG
         /*
@@ -52,7 +52,7 @@ void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *en
     if ((dx == 2 && dy ==1) || (dy == 2 && dx == 1)) {
         printf("Valid Knight Move\n");
         // Swaps the pieces if the move is valid
-        swap(&board[*init_x][*init_x], &board[*end_x][*end_x]);
+        swap(&board[*init_x][*init_y], &board[*end_x][*end_y]);
     } else{
         printf("Invalid Knight Move\n");
         // continue the game loop (will implement soon)
