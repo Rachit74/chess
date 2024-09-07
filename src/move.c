@@ -27,6 +27,7 @@ void movePiece(Piece board[8][8]) {
         if replacing piece is not equals to EMPTY that is 0 in enum
         */
     } else {
+        // checks the piece type (to be replaced by swtich statement)
         if (moving_piece.type == 4) {
             knightMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
         };
@@ -50,9 +51,11 @@ void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *en
     // Knight moves in L shape (2 units in one direction and 1 unit in the perpendicular direction)
     if ((dx == 2 && dy ==1) || (dy == 2 && dx == 1)) {
         printf("Valid Knight Move\n");
+        // Swaps the pieces if the move is valid
         swap(&board[*init_x][*init_x], &board[*end_x][*end_x]);
     } else{
         printf("Invalid Knight Move\n");
+        // continue the game loop (will implement soon)
     }
     
 }

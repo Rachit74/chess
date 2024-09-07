@@ -43,6 +43,9 @@ void initializeBoard(Piece board[8][8]);
 // Move piece function
 void movePiece(Piece board[8][8]);
 
+// Piece Move functions below this comment
+
+// Knight Move function
 void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
 
 #endif
