@@ -28,6 +28,7 @@ typedef struct {
 	whiteKnight1, whiteKnight2
 	*/
 	char identification[20];
+	char face[2];
 } Piece;
 
 // Declaring swap function

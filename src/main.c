@@ -5,9 +5,9 @@
 #include "main.h" // Including the main src header file
 
 /*
-Currently the initializeBoard function initilizez the board and sets each piece object to None and that is printed out
-When moving the piece the board will not change because each piece is same currently
-Futher explained in the comment above initializeBoard function
+Each block on the board has been initalized with a piece type and pieces with colors
+main function runs the game loop
+currently only knight move function is written in move.c
 */
 
 int main() {
@@ -51,7 +51,7 @@ void printBoard(Piece board[8][8]) {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
             // print piece type and color
-            printf("  %4d[%d](%d,%d)  ", board[i][j].type, board[i][j].color, i,j);
+            printf("  %c%c[%d](%d,%d)  ", board[i][j].face[0], board[i][j].face[1], board[i][j].color, i,j);
         }
         printf("\n");
     }
@@ -72,47 +72,49 @@ void initializeBoard(Piece board[8][8]) {
             board[i][j].type = NONE;
             board[i][j].color = EMPTY;
             strcpy(board[i][j].identification, "Empty");
+            strcpy(board[i][j].face, "  ");
         }
-    } 
+    }
 
     // Black Pieces
-    board[0][0] = (Piece){ROOK, BLACK, "blackRook1"};
-    board[0][1] = (Piece){KNIGHT, BLACK, "blackKnight1"};
-    board[0][2] = (Piece){BISHOP, BLACK, "blackBishop1"};
-    board[0][3] = (Piece){QUEEN, BLACK, "blackQueen"};
-    board[0][4] = (Piece){KING, BLACK, "blackKing"};
-    board[0][5] = (Piece){BISHOP, BLACK, "blackBishop2"};
-    board[0][6] = (Piece){KNIGHT, BLACK, "blackKnight2"};
-    board[0][7] = (Piece){ROOK, BLACK, "blackRook2"};
+    board[0][0] = (Piece){ROOK, BLACK, "blackRook1", "RB"};
+    board[0][1] = (Piece){KNIGHT, BLACK, "blackKnight1", "NB"};
+    board[0][2] = (Piece){BISHOP, BLACK, "blackBishop1", "BB"};
+    board[0][3] = (Piece){QUEEN, BLACK, "blackQueen", "BQ"};
+    board[0][4] = (Piece){KING, BLACK, "blackKing", "BK"};
+    board[0][5] = (Piece){BISHOP, BLACK, "blackBishop2", "BB"};
+    board[0][6] = (Piece){KNIGHT, BLACK, "blackKnight2", "NB"};
+    board[0][7] = (Piece){ROOK, BLACK, "blackRook2", "RB"};
+
     // Pawns
-    board[1][0] = (Piece){PAWN, BLACK, "blackPawn1"};
-    board[1][1] = (Piece){PAWN, BLACK, "blackPawn2"};
-    board[1][2] = (Piece){PAWN, BLACK, "blackPawn3"};
-    board[1][3] = (Piece){PAWN, BLACK, "blackPawn4"};
-    board[1][4] = (Piece){PAWN, BLACK, "blackPawn5"};
-    board[1][5] = (Piece){PAWN, BLACK, "blackPawn6"};
-    board[1][6] = (Piece){PAWN, BLACK, "blackPawn7"};
-    board[1][7] = (Piece){PAWN, BLACK, "blackPawn8"};
+    board[1][0] = (Piece){PAWN, BLACK, "blackPawn1", "PB"};
+    board[1][1] = (Piece){PAWN, BLACK, "blackPawn2", "PB"};
+    board[1][2] = (Piece){PAWN, BLACK, "blackPawn3", "PB"};
+    board[1][3] = (Piece){PAWN, BLACK, "blackPawn4", "PB"};
+    board[1][4] = (Piece){PAWN, BLACK, "blackPawn5", "PB"};
+    board[1][5] = (Piece){PAWN, BLACK, "blackPawn6", "PB"};
+    board[1][6] = (Piece){PAWN, BLACK, "blackPawn7", "PB"};
+    board[1][7] = (Piece){PAWN, BLACK, "blackPawn8", "PB"};
 
     // White Pieces
-    board[7][0] = (Piece){ROOK, WHITE, "whiteRook1"};
-    board[7][1] = (Piece){KNIGHT, WHITE, "whiteKnight1"};
-    board[7][2] = (Piece){BISHOP, WHITE, "whiteBishop1"};
-    board[7][3] = (Piece){QUEEN, WHITE, "whiteQueen"};
-    board[7][4] = (Piece){KING, WHITE, "whiteKing"};
-    board[7][5] = (Piece){BISHOP, WHITE, "whiteBishop2"};
-    board[7][6] = (Piece){KNIGHT, WHITE, "whiteKnight2"};
-    board[7][7] = (Piece){ROOK, WHITE, "whiteRook2"};
-    // Pawns
-    board[6][0] = (Piece){PAWN, WHITE, "whitePawn1"};
-    board[6][1] = (Piece){PAWN, WHITE, "whtiePawn2"};
-    board[6][2] = (Piece){PAWN, WHITE, "whitePawn3"};
-    board[6][3] = (Piece){PAWN, WHITE, "whitePawn4"};
-    board[6][4] = (Piece){PAWN, WHITE, "whitePawn5"};
-    board[6][5] = (Piece){PAWN, WHITE, "whitePawn6"};
-    board[6][6] = (Piece){PAWN, WHITE, "whitePawn7"};
-    board[6][7] = (Piece){PAWN, WHITE, "whitePawn8"};
+    board[7][0] = (Piece){ROOK, WHITE, "whiteRook1", "RW"};
+    board[7][1] = (Piece){KNIGHT, WHITE, "whiteKnight1", "NW"};
+    board[7][2] = (Piece){BISHOP, WHITE, "whiteBishop1", "BW"};
+    board[7][3] = (Piece){QUEEN, WHITE, "whiteQueen", "QW"};
+    board[7][4] = (Piece){KING, WHITE, "whiteKing", "KW"};
+    board[7][5] = (Piece){BISHOP, WHITE, "whiteBishop2", "BW"};
+    board[7][6] = (Piece){KNIGHT, WHITE, "whiteKnight2", "NW"};
+    board[7][7] = (Piece){ROOK, WHITE, "whiteRook2", "RW"};
 
+    // Pawns
+    board[6][0] = (Piece){PAWN, WHITE, "whitePawn1", "PW"};
+    board[6][1] = (Piece){PAWN, WHITE, "whitePawn2", "PW"};
+    board[6][2] = (Piece){PAWN, WHITE, "whitePawn3", "PW"};
+    board[6][3] = (Piece){PAWN, WHITE, "whitePawn4", "PW"};
+    board[6][4] = (Piece){PAWN, WHITE, "whitePawn5", "PW"};
+    board[6][5] = (Piece){PAWN, WHITE, "whitePawn6", "PW"};
+    board[6][6] = (Piece){PAWN, WHITE, "whitePawn7", "PW"};
+    board[6][7] = (Piece){PAWN, WHITE, "whitePawn8", "PW"};
 
 
     // will have to set other pieces manually
