@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "main.h"
 
@@ -26,15 +27,32 @@ void movePiece(Piece board[8][8]) {
         if replacing piece is not equals to EMPTY that is 0 in enum
         */
     } else {
+        if (moving_piece.type == 4) {
+            knightMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
+        };
         // Else simply replaces the piece
-        swap(&board[initial_pos_x][initial_pos_y], &board[final_pos_x][final_pos_y]);
+        // swap(&board[initial_pos_x][initial_pos_y], &board[final_pos_x][final_pos_y]);
     }
 
 
 
 }
 
-void knightMove(int init_x, int init_y, int end_x, int end_y)
-{
-    // 
+/*
+knightMove function handles the movement of knight
+args: intial x and y pos, final x and y pos.
+*/
+void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y){   
+    // abs function returns the absolute value that the piece would have moved, like measuring distance on a number line neglecting the direction
+    int dx = abs(*init_x-*end_x);
+    int dy = abs(*init_y-*end_y);
+
+    // Knight moves in L shape (2 units in one direction and 1 unit in the perpendicular direction)
+    if ((dx == 2 && dy ==1) || (dy == 2 && dx == 1)) {
+        printf("Valid Knight Move\n");
+        swap(&board[*init_x][*init_x], &board[*end_x][*end_x]);
+    } else{
+        printf("Invalid Knight Move\n");
+    }
+    
 }
