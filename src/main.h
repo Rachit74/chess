@@ -40,4 +40,7 @@ void printBoard(Piece board[8][8]);
 // This function is explained in main.c file
 void initializeBoard(Piece board[8][8]);
 
+// Move piece function
+void movePiece(Piece board[8][8]);
+
 #endif

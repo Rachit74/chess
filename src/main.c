@@ -15,24 +15,11 @@ int main() {
 
     initializeBoard(board);
 
-    // Declare move and position variables
-    int move1, move2, pos1, pos2;
-
     // Print the initial unchanged state of the board
     printBoard(board);
-    
-    /*
-    Will define a move function for each piece type ?
-    */
 
-    printf("Which piece you want to move: ");
-    scanf("%d %d", &move1, &move2);
+    movePiece(board);
 
-    printf("Where to move: ");
-    scanf("%d %d", &pos1, &pos2);
-
-    // Move the chess piece to the desired position
-    swap(&board[move1][move2], &board[pos1][pos2]);
 
     // Print the board again with updated chess positions
     printBoard(board);
