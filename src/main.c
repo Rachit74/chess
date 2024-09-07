@@ -1,5 +1,6 @@
-# include <stdio.h>
-# include <string.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
 
 #include "main.h" // Including the main src header file
 
@@ -10,19 +11,27 @@ Futher explained in the comment above initializeBoard function
 */
 
 int main() {
+
+
     // Initialization of the chess board
     Piece board[8][8];
 
     initializeBoard(board);
 
-    // Print the initial unchanged state of the board
+    int gameEnded = false;
+
+    // print the initial unchanged state of the board
     printBoard(board);
 
-    movePiece(board);
+    // Game Loop
+    while (!gameEnded)
+    {
+        movePiece(board);
 
-
-    // Print the board again with updated chess positions
-    printBoard(board);
+        // Print the board again with updated chess positions
+        printBoard(board);
+    }
+    
 
     return 0;
 }
