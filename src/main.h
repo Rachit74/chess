@@ -46,7 +46,13 @@ void movePiece(Piece board[8][8]);
 
 // Piece Move functions below this comment
 
+// Pawn Move function
+void pawnMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
+
 // Knight Move function
 void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
+
+// Rook Move function
+void rookMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
 
 #endif

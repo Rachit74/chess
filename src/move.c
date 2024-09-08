@@ -25,7 +25,7 @@ void movePiece(Piece board[8][8]) {
         bhai agar ek piece ko X,Y se A,B pe move kr rahe hai, aur A,B pe
         koi aur piece hai toh uska logic
         if replacing piece is not equals to EMPTY that is 0 in enum
-        */
+        */       
     } else {
         // checks the piece type (to be replaced by swtich statement)
         if (moving_piece.type == 4) {
@@ -37,6 +37,10 @@ void movePiece(Piece board[8][8]) {
 
 
 
+}
+
+void pawnMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y) {
+    //
 }
 
 /*
@@ -58,4 +62,8 @@ void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *en
         // continue the game loop (will implement soon)
     }
     
+}
+
+void rookMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y) {
+    //  
 }
