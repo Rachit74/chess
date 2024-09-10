@@ -52,6 +52,9 @@ void pawnMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_
 // Knight Move function
 void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
 
+// Bishop move function
+void bishopMove(Piece board[8][8], int * init_x, int *init_y, int *end_x, int *end_y);
+
 // Rook Move function
 void rookMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y);
 

@@ -30,7 +30,10 @@ void movePiece(Piece board[8][8]) {
         // checks the piece type (to be replaced by swtich statement)
         if (moving_piece.type == 4) {
             knightMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
+        } else if (moving_piece.type == 2){
+            bishopMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
         };
+        
         // Else simply replaces the piece
         // swap(&board[initial_pos_x][initial_pos_y], &board[final_pos_x][final_pos_y]);
     }
@@ -59,9 +62,31 @@ void knightMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *en
         swap(&board[*init_x][*init_y], &board[*end_x][*end_y]);
     } else{
         printf("Invalid Knight Move\n");
-        // continue the game loop (will implement soon)
+        // continue
     }
     
+}
+
+/*
+bishopMove function handles the movement of the bishop
+args: intial x and y pos, final x and y pos.
+calculation of move: moving an bishop from (x,y) to (a,b) will be |x-a| == |y-b| this ensures that bishop is moving diagonally
+*/
+
+/*
+Currenty there is no check for pieces that are in the path, the bishop is jumping over the pieces
+*/
+void bishopMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y){
+    int dx = abs(*init_x - *end_x);
+    int dy = abs(*init_y - *end_y);
+
+    // Bishops moves diagonally
+    if (dx == dy) {
+        swap(&board[*init_x][*init_y], &board[*end_x][*end_y]);
+    } else {
+        printf("Invalid bishop move!");
+        // continue
+    }
 }
 
 void rookMove(Piece board[8][8], int *init_x, int *init_y, int *end_x, int *end_y) {
