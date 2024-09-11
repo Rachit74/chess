@@ -27,15 +27,19 @@ void movePiece(Piece board[8][8]) {
         if replacing piece is not equals to EMPTY that is 0 in enum
         */       
     } else {
-        // checks the piece type (to be replaced by swtich statement)
-        if (moving_piece.type == 4) {
+        switch (moving_piece.type)
+        {
+        case 4:
             knightMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
-        } else if (moving_piece.type == 2){
+            break;
+
+        case 2:
             bishopMove(board, &initial_pos_x, &initial_pos_y, &final_pos_x, &final_pos_y);
-        };
+            
         
-        // Else simply replaces the piece
-        // swap(&board[initial_pos_x][initial_pos_y], &board[final_pos_x][final_pos_y]);
+        default:
+            break;
+        };        
     }
 
 
