@@ -1,8 +1,8 @@
 # Chess
-Making a CLI based chess engine in C.
+Making a chess game in c++ with SFML.
 
 ## Compile to `./chess` file using
-`gcc -o chess src/main.c src/move.c`
+`g++ files.cpp -o chess -lsfml-graphics -lsfml-window -lsfml-system`
 
-## Further Implementations
-- Player Turns
+## Implementations
+- Basic Window Draw and object move
